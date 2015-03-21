@@ -7,25 +7,25 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-void ArgParser::AddArg(char *pID,char *pDescription,bool &bVal)
+void ArgParser::AddArg(const char *pID,const char *pDescription,bool &bVal)
     {
     m_aArgs.push_back(
         new BoolArg(pID,pDescription,bVal));
     }
 
-void ArgParser::AddArg(char *pID,char *pDescription,int &nVal,bool &bUserProvided)
+void ArgParser::AddArg(const char *pID,const char *pDescription,int &nVal,bool &bUserProvided)
     {
     m_aArgs.push_back(
         new IntArg(pID,pDescription,nVal,bUserProvided));
     }
 
-void ArgParser::AddArg(char *pID,char *pDescription,double &dVal,bool &bUserProvided)
+void ArgParser::AddArg(const char *pID,const char *pDescription,double &dVal,bool &bUserProvided)
     {
     m_aArgs.push_back(
         new DoubleArg(pID,pDescription,dVal,bUserProvided));
     }
 
-void ArgParser::AddArg(char *pID,char *pDescription,std::string &csVal,bool &bUserProvided)
+void ArgParser::AddArg(const char *pID,const char *pDescription,std::string &csVal,bool &bUserProvided)
     {
     m_aArgs.push_back(
         new StringArg(pID,pDescription,csVal,bUserProvided));

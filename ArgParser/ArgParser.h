@@ -19,18 +19,18 @@ class ArgParser
         ///////////////////////////////////////////////////////////////////////
 
         // bool argument.
-        void AddArg(char *pID,char *pDescription,bool        &bVal);
+        void AddArg(const char *pID,const char *pDescription,bool        &bVal);
 
         // int argument.
-        void AddArg(char *pID,char *pDescription,int         &nVal, bool &bUserProvided);
+        void AddArg(const char *pID,const char *pDescription,int         &nVal, bool &bUserProvided);
 
         // double argument.
-        void AddArg(char *pID,char *pDescription,double      &dVal, bool &bUserProvided);
+        void AddArg(const char *pID,const char *pDescription,double      &dVal, bool &bUserProvided);
 
         // string argument.
         // Note: if a string with spaces is used, the user
         // must use double quotes around the string.
-        void AddArg(char *pID,char *pDescription,std::string &csVal,bool &bUserProvided);
+        void AddArg(const char *pID,const char *pDescription,std::string &csVal,bool &bUserProvided);
 
 
         // call after adding arguments to fill in above references.
@@ -48,8 +48,8 @@ class ArgParser
 class Arg
     {
     public:
-        Arg(char *pID,
-            char *pDesc):
+        Arg(const char *pID,
+            const char *pDesc):
             m_csID(pID),
             m_csDesc(pDesc) {}
 
@@ -67,9 +67,9 @@ class Arg
 class BoolArg : public Arg
     {
     public:
-        BoolArg(char *pID,
-                char *pDesc,
-                bool &bVal):
+        BoolArg(const char *pID,
+                const char *pDesc,
+                bool       &bVal):
             Arg(pID,pDesc),
             m_bVal(bVal)
             {
@@ -86,10 +86,10 @@ class BoolArg : public Arg
 class IntArg : public Arg
     {
     public:
-        IntArg(char *pID,
-               char *pDesc,
-               int  &nVal,
-               bool &bUserProvided):
+        IntArg(const char *pID,
+               const char *pDesc,
+               int        &nVal,
+               bool       &bUserProvided):
             Arg(pID,pDesc),
             m_nVal(nVal),
             m_bUserProvided(bUserProvided)
@@ -110,10 +110,10 @@ class IntArg : public Arg
 class DoubleArg : public Arg
     {
     public:
-        DoubleArg(char   *pID,
-                  char   *pDesc,
-                  double &dVal,
-                  bool   &bUserProvided):
+        DoubleArg(const char   *pID,
+                  const char   *pDesc,
+                  double       &dVal,
+                  bool         &bUserProvided):
             Arg(pID,pDesc),
             m_dVal(dVal),
             m_bUserProvided(bUserProvided)
@@ -134,10 +134,10 @@ class DoubleArg : public Arg
 class StringArg : public Arg
     {
     public:
-        StringArg(char        *pID,
-                  char        *pDesc,
-                  std::string &csVal,
-                  bool        &bUserProvided):
+        StringArg(const char        *pID,
+                  const char        *pDesc,
+                  std::string       &csVal,
+                  bool              &bUserProvided):
             Arg(pID,pDesc),
             m_csVal(csVal),
             m_bUserProvided(bUserProvided)
